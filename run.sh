@@ -13,8 +13,7 @@ echo ""
 echo -e "\e[00;32m##################################################################\e[00m"
 
 echo ""
-IPINT=$(ifconfig | grep "eth" | cut -d " " -f 1 | head -1)
-IP=$(ifconfig "$IPINT" |grep "inet addr:" |cut -d ":" -f 2 |awk '{ print $1 }')
+IP=$(ifconfig | grep inet | awk '{print $2}' | head -1)
 echo -e "\e[1;31m-------------------------------------------------------------------\e[00m"
 echo -e "\e[01;31m[?]\e[00m What is the victims public IP address?"
 echo -e "\e[1;31m-------------------------------------------------------------------\e[00m"
